@@ -46,7 +46,7 @@
                 "Name[zh_TW]": "Bears Abney"
             }
         ],
-        "BugReportUrl": "https://github.com/bearsdotzone/plasma.beats",
+        "BugReportUrl": "https://github.com/bearsdotzone/zone.bears.plasma.beats",
         "Category": "Date and Time",
         "Description": "Internet time",
         "Description[x-test]": "xxInternet timexx",
@@ -55,7 +55,7 @@
         "License": "GPL-2.0+",
         "Name": "zone.bears.plasma.beats",
         "Name[x-test]": "xxzone.bears.plasma.beatsxx",
-        "Website": "https://github.com/bearsdotzone/plasma.beats"
+        "Website": "https://github.com/bearsdotzone/zone.bears.plasma.beats"
     },
     "X-Plasma-API-Minimum-Version": "6.0",
     "X-Plasma-Provides": [
