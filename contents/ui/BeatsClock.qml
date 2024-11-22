@@ -45,70 +45,9 @@ Item {
         }
         else
         {
-            return "@" + beats.toFixed(0);
+            return "@" + Math.floor(beats);
         }
     }
-
-    // function timeString() {
-    //     var d = new Date(dataSource.data["Local"]["DateTime"])
-    //     var hours = d.getHours()
-    //     var minutes = d.getMinutes()
-
-    //     return getBeatsTime();
-
-    //     if (main.fuzzyness == 1 || main.fuzzyness == 2) {
-    //         var sector = 0
-    //         var realHour = 0
-
-    //         if (main.fuzzyness == 1) {
-    //             if (minutes > 2) {
-    //                 sector = (minutes - 3) / 5 + 1
-    //             }
-    //         } else {
-    //             // this formula has been determined by carefully filling a spreadsheet
-    //             // and looking at the numbers :)
-    //             sector = ((minutes + 7) / 15 * 3)
-    //             // now round down to the nearest three
-    //             sector = (Math.floor(sector / 3) * 3)
-    //         }
-
-    //         if (hours % 12 > 0) {
-    //             realHour = hours % 12 - 1
-    //         } else {
-    //             realHour = 12 - (hours % 12 + 1)
-    //         }
-
-    //         sector = Math.floor(sector);
-    //         if (sector == 12) {
-    //             realHour += 1
-    //             if (Math.floor(realHour) >= hourNames.length) {
-    //                 realHour = 0
-    //             }
-    //             sector = 0
-    //         }
-
-    //         return hourNames[Math.floor(realHour)][sector]
-    //     } else if (main.fuzzyness == 3) {
-    //         return halflingTime[Math.floor(hours / 3)]
-    //     } else if (main.fuzzyness == 4) {
-    //         return dayTime[Math.floor(hours / 3)]
-    //     } else {
-    //         var dow = d.getDay()
-
-    //         var weekTimeId
-    //         if (dow == 1) {
-    //             weekTimeId = 0
-    //         } else if (dow >= 2 && dow <= 4) {
-    //             weekTimeId = 1
-    //         } else if (dow == 5) {
-    //             weekTimeId = 2
-    //         } else {
-    //             weekTimeId = 3
-    //         }
-
-    //         return weekTime[weekTimeId]
-    //     }
-    // }
 
     activeFocusOnTab: true
 

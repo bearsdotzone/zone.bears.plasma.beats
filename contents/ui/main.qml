@@ -24,6 +24,7 @@ PlasmoidItem {
 
     preferredRepresentation: compactRepresentation
 
+    // This could likely be abstracted so as to not be a repeat of the function in BeatsClock.qml
     function getBeatsTime(): string {
         const now = dataSource.data["Local"]["DateTime"];
 
@@ -36,6 +37,33 @@ PlasmoidItem {
         return "@" + beats.toFixed(2);
     }
 
+    // This seg faults eventually so I did the lazy route of just having the interval be 864 all the time.
+    // Probably uses more resources.
+    // function alignInterval(): int {
+    //     // Interval is defined as distance between now and next full beat.
+
+    //     const now = dataSource.data["Local"]["DateTime"];
+
+    //     // Add an hour to go from UTC to "BMT"
+    //     const msBMT = now.getTime() + (60 * 60000);
+        
+    //     const secondsBMT = msBMT / 1000;
+    //     const beats = secondsBMT % 86400 / 86400 * 1000;
+
+    //     const nextBeat = Math.ceil(beats);
+
+    //     const calcDelay = Math.round(86400 * (nextBeat - beats));
+
+    //     // This didn't work as a ternary. Don't know why.
+    //     if(calcDelay <= 864)
+    //     {
+    //         return 86400;
+    //     }
+    //     else {
+    //         return calcDelay;
+    //     }
+    // }
+
     toolTipMainText: getBeatsTime()
     toolTipSubText: ""
 
@@ -45,8 +73,9 @@ PlasmoidItem {
         id: dataSource
         engine: "time"
         connectedSources: ["Local"]
-        interval: root.compactRepresentationItem.mouseArea.containsMouse ? 864 : 86400
-        intervalAlignment: root.compactRepresentationItem.mouseArea.containsMouse ? P5Support.Types.NoAlignment : P5Support.Types.AlignToMinute
+        // interval: root.compactRepresentationItem.mouseArea.containsMouse || plasmoid.configuration.showCentibeats ? 864 : alignInterval()
+        interval: 864
+        intervalAlignment: P5Support.Types.NoAlignment
     }
 
     compactRepresentation: BeatsClock {
